@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Type Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex justify-center items-center h-screen">
+        <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold text-center mb-6">Pizza Type Prediction</h1>
+             
+            <form action="/predict" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Name (0: bbq_ckn, 1: big_meat, 2: brie_carre, 3: calabrese, 4: cali_ckn)" class="w-full p-2 border border-gray-300 rounded">
+                <input type="text" name="size" placeholder="Size (0: L, 1: M, 2: S, 3: XL, 4: XXL)" class="w-full p-2 border border-gray-300 rounded">
+                <input type="text" name="price" placeholder="Price (0: 9.75, 1: 10.5, 2: 11.0, 3: 12.0, 4: 12.25, 5: 12.5, 6: 12.75)" class="w-full p-2 border border-gray-300 rounded">
+                <input type="number" name="month" placeholder="Month (1 - 12)" class="w-full p-2 border border-gray-300 rounded">
+                <input type="number" name="hour" placeholder="Hour (0 - 23)" class="w-full p-2 border border-gray-300 rounded">
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Predict</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
