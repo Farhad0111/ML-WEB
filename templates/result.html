@@ -1,3 +1,4 @@
+<!--templates/result.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,34 @@
             <p class="text-center text-2xl font-bold text-green-600">{{ prediction }}</p>
             <p class="text-center text-gray-700 text-lg mt-4">Confidence level:</p>
             <p class="text-center text-xl font-semibold text-blue-600">{{ confidence }}%</p>
+
+            <h2 class="text-center font-bold mt-8 mb-4">Pizza Images</h2>
+            <div class="grid grid-cols-2 gap-4">
+                {% set pizza_images = {
+                    "chicken": "static/Pizza/chicken.jpeg",
+                    "classic": "static/Pizza/classic.jpg",
+                    "supreme": "static/Pizza/supreme.jpg",
+                    "veggie": "static/Pizza/veggie.jpg"
+                } %}
+
+                <!-- Display the predicted pizza type image first -->
+                <div class="text-center">
+                    <img src="{{ pizza_images[prediction] }}" alt="{{ prediction }}" class="w-full h-40 object-cover rounded">
+                    <p class="mt-2 font-semibold">{{ prediction }}</p>
+                </div>
+
+                <!-- Display three other random images excluding the predicted type -->
+                {% set other_pizza_types = pizza_images.keys() | reject('equalto', prediction) | list %}
+                {% for pizza_type in other_pizza_types[:3] %}
+                    <div class="text-center">
+                        <img src="{{ pizza_images[pizza_type] }}" alt="{{ pizza_type }}" class="w-full h-40 object-cover rounded">
+                        <p class="mt-2 font-semibold">{{ pizza_type }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
             <a href="/" class="block text-center mt-6 text-blue-500 hover:underline">Predict Again</a>
         </div>
     </div>
 </body>
 </html>
-
-
