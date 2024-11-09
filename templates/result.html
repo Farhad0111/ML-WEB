@@ -1,4 +1,3 @@
-<!--templates/result.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +28,76 @@
                 <div class="text-center">
                     <img src="{{ pizza_images[prediction] }}" alt="{{ prediction }}" class="w-full h-40 object-cover rounded">
                     <p class="mt-2 font-semibold">{{ prediction }}</p>
+                    <!-- Buttons for Details and Order Now -->
+                    <div class="mt-2 flex justify-center space-x-4">
+                        <a href="/details/{{ prediction }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Details & Order</a> 
+                        <!--<a href="/order/{{ prediction }}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Order Now</a>-->
+                    </div>
                 </div>
-
+            
                 <!-- Display three other random images excluding the predicted type -->
                 {% set other_pizza_types = pizza_images.keys() | reject('equalto', prediction) | list %}
+                {% for pizza_type in other_pizza_types[:3] %}
+                    <div class="text-center">
+                        <img src="{{ pizza_images[pizza_type] }}" alt="{{ pizza_type }}" class="w-full h-40 object-cover rounded">
+                        <p class="mt-2 font-semibold">{{ pizza_type }}</p>
+                        <!-- Buttons for Details and Order Now -->
+                        <div class="mt-2 flex justify-center space-x-4">
+                            <a href="/details/{{ pizza_type }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Details & Order</a>
+                            <!--<a href="/order/{{ pizza_type }}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Order Now</a>-->
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a href="/" class="block text-center mt-6 text-blue-500 hover:underline">Predict Again</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!--templates/result.html (original)-->
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen flex justify-center items-center" style="background: linear-gradient(to bottom right, #4b0082, #dda0dd);">
+    <div class="flex justify-center items-center h-screen">
+        <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold text-center mb-6">Predicted Pizza Type</h1>
+            <p class="text-center text-gray-700 text-lg">The predicted pizza type is:</p>
+            <p class="text-center text-2xl font-bold text-green-600">{{ prediction }}</p>
+            <p class="text-center text-gray-700 text-lg mt-4">Confidence level:</p>
+            <p class="text-center text-xl font-semibold text-blue-600">{{ confidence }}%</p>
+
+            <h2 class="text-center font-bold mt-8 mb-4">Pizza Images</h2>
+            <div class="grid grid-cols-2 gap-4">
+                {% set pizza_images = {
+                    "chicken": "static/Pizza/chicken.jpeg",
+                    "classic": "static/Pizza/classic.jpg",
+                    "supreme": "static/Pizza/supreme.jpg",
+                    "veggie": "static/Pizza/veggie.jpg"
+                } %}
+            -->
+                <!-- Display the predicted pizza type image first -->
+           <!--     <div class="text-center">
+                    <img src="{{ pizza_images[prediction] }}" alt="{{ prediction }}" class="w-full h-40 object-cover rounded">
+                    <p class="mt-2 font-semibold">{{ prediction }}</p>
+                </div>
+            -->
+                <!-- Display three other random images excluding the predicted type -->
+      <!--          {% set other_pizza_types = pizza_images.keys() | reject('equalto', prediction) | list %}
                 {% for pizza_type in other_pizza_types[:3] %}
                     <div class="text-center">
                         <img src="{{ pizza_images[pizza_type] }}" alt="{{ pizza_type }}" class="w-full h-40 object-cover rounded">
@@ -45,4 +110,4 @@
         </div>
     </div>
 </body>
-</html>
+</html>-->
