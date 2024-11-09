@@ -1,3 +1,4 @@
+<!--templates/order.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order - {{ pizza_type | capitalize }} Pizza</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!--<style>
+        body {
+            background-image: url('/static/background/payment.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>-->
+
+
+
+
 </head>
-<body class="min-h-screen flex justify-center items-center bg-gray-100">
+<!--<body class="min-h-screen flex justify-center items-center bg-gradient-to-r from-gray-800 via-blue-600 to-gray-30
+">-->
+<body class="min-h-screen flex justify-center items-center bg-gradient-to-r from-pink-300  to-blue-300">
+
     <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
         <h1 class="text-3xl font-bold text-center mb-4">Order {{ pizza_type | capitalize }} Pizza</h1>
         
         <!-- Use url_for with a fallback for both .jpg and .jpeg formats -->
-        <img src="{{ url_for('static', filename='Pizza/' + pizza_type + '.jpg') }}" alt="{{ pizza_type }} pizza" class="w-full h-60 object-cover rounded mb-4" onerror="this.onerror=null; this.src='{{ url_for('static', filename='Pizza/' + pizza_type + '.jpeg') }}'">
+        <img src="{{ url_for('static', filename='Pizza/' + pizza_type + '.jpg') }}" alt="{{ pizza_type }} pizza" class="w-100 h-60 object-cover rounded mb-4 mx-auto" onerror="this.onerror=null; this.src='{{ url_for('static', filename='Pizza/' + pizza_type + '.jpeg') }}'">
         
         <p class="text-xl font-semibold text-gray-800">Price: {{ pizza['price'] }}</p>
-        
+      
         <!-- Order form (simple mock-up) -->
         <form class="mt-4">
             <label class="block mb-2 text-gray-700">Quantity</label>
@@ -27,63 +43,3 @@
     </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--templates/order.html-->
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order - {{ pizza_type | capitalize }} Pizza</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="min-h-screen flex justify-center items-center bg-gray-100">
-    <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold text-center mb-4">Order {{ pizza_type | capitalize }} Pizza</h1>
-        
-        <img src="{{ pizza['image'] }}" alt="{{ pizza_type }} pizza" class="w-full h-60 object-cover rounded mb-4">
-        
-        <p class="text-xl font-semibold text-gray-800">Price: {{ pizza['price'] }}</p>
-    -->    
-        <!-- Order form (simple mock-up) -->
-      <!--  <form class="mt-4">
-            <label class="block mb-2 text-gray-700">Quantity</label>
-            <input type="number" min="1" value="1" class="w-full px-3 py-2 border rounded">
-            
-            <button type="submit" class="mt-6 block w-full text-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Place Order</button>
-        </form>
-        
-        <a href="/" class="block text-center mt-4 text-blue-500 hover:underline">Back to Prediction</a>
-    </div>
-</body>
-</html>
--->

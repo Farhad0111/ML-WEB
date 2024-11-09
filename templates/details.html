@@ -1,3 +1,4 @@
+<!--templates/details.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +7,13 @@
     <title>{{ pizza_type | capitalize }} Pizza - Details</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="min-h-screen flex justify-center items-center bg-gray-100">
+<body class="min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 via-blue-300 to-blue-200
+">
     <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
         <h1 class="text-3xl font-bold text-center mb-4">{{ pizza_type | capitalize }} Pizza</h1>
         
         <!-- Use url_for with a fallback for both .jpg and .jpeg formats -->
-        <img src="{{ url_for('static', filename='Pizza/' + pizza_type + '.jpg') }}" alt="{{ pizza_type }} pizza" class="w-full h-60 object-cover rounded mb-4" onerror="this.onerror=null; this.src='{{ url_for('static', filename='Pizza/' + pizza_type + '.jpeg') }}'">
+        <img src="{{ url_for('static', filename='Pizza/' + pizza_type + '.jpg') }}" alt="{{ pizza_type }} pizza" class="w-100 h-60 object-cover rounded mb-4 mx-auto" onerror="this.onerror=null; this.src='{{ url_for('static', filename='Pizza/' + pizza_type + '.jpeg') }}'">
         
         <p class="text-xl font-semibold text-gray-800">Price: {{ pizza['price'] }}</p>
         
@@ -30,110 +32,3 @@
     </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ pizza_type | capitalize }} Pizza - Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="min-h-screen flex justify-center items-center bg-gray-100">
-    <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold text-center mb-4">{{ pizza_type | capitalize }} Pizza</h1>
-    -->    
-        <!-- Use url_for to link the image from the static folder -->
-      <!--  <img src="{{ url_for('static', filename='Pizza/' + pizza_type + '.jpg') }}" alt="{{ pizza_type }} pizza" class="w-full h-60 object-cover rounded mb-4">
-        
-        <p class="text-xl font-semibold text-gray-800">Price: {{ pizza['price'] }}</p>
-        
-        <h2 class="text-lg font-bold mt-4">Ingredients:</h2>
-        <ul class="list-disc list-inside text-gray-700">
-            {% for ingredient in pizza['ingredients'] %}
-                <li>{{ ingredient }}</li>
-            {% endfor %}
-        </ul>
-        
-        <p class="text-lg font-semibold mt-4">Reviews: <span class="text-yellow-500">{{ pizza['reviews'] }} ⭐</span></p>
-        <p class="text-lg font-semibold mt-2">Sold: {{ pizza['sales'] }} pieces</p>
-        
-        <a href="/order/{{ pizza_type }}" class="mt-6 block text-center px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Order Now</a>
-        <a href="/" class="block text-center mt-4 text-blue-500 hover:underline">Back to Prediction</a>
-    </div>
-</body>
-</html>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--templates/details.html-->
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ pizza_type | capitalize }} Pizza - Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="min-h-screen flex justify-center items-center bg-gray-100">
-    <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold text-center mb-4">{{ pizza_type | capitalize }} Pizza</h1>
-        
-        <img src="{{ pizza['image'] }}" alt="{{ pizza_type }} pizza" class="w-full h-60 object-cover rounded mb-4">
-        
-        <p class="text-xl font-semibold text-gray-800">Price: {{ pizza['price'] }}</p>
-        
-        <h2 class="text-lg font-bold mt-4">Ingredients:</h2>
-        <ul class="list-disc list-inside text-gray-700">
-            {% for ingredient in pizza['ingredients'] %}
-                <li>{{ ingredient }}</li>
-            {% endfor %}
-        </ul>
-        
-        <p class="text-lg font-semibold mt-4">Reviews: <span class="text-yellow-500">{{ pizza['reviews'] }} ⭐</span></p>
-        <p class="text-lg font-semibold mt-2">Sold: {{ pizza['sales'] }} pieces</p>
-        
-        <a href="/order/{{ pizza_type }}" class="mt-6 block text-center px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Order Now</a>
-        <a href="/" class="block text-center mt-4 text-blue-500 hover:underline">Back to Prediction</a>
-    </div>
-</body>
-</html>-->
